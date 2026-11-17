@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f1f3">
+  <title>Mis XV años | Invitación</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+    :root {
+      --ink: #3b2022;
+      --muted: #80696a;
+      --rose: #b62e3b;
+      --rose-dark: #8d1727;
+      --paper: #fffdf9;
+      --line: #ead5cf;
+      --blush: #f8eeea;
+      --gold: #c69b61;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f7efec;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .page {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 40px 18px;
+      background:
+        radial-gradient(ellipse at 8% 18%, rgba(182, 46, 59, .14), transparent 30%),
+        radial-gradient(ellipse at 92% 83%, rgba(198, 155, 97, .16), transparent 32%),
+        #f7efec;
+    }
+    .invitation {
+      position: relative;
+      isolation: isolate;
+      width: min(100%, 680px);
+      padding: 18px;
+      background: var(--paper);
+      box-shadow: 0 24px 75px rgba(93, 57, 73, .13);
+    }
+    .invitation::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid var(--line);
+      pointer-events: none;
+    }
+    .inner {
+      min-height: 780px;
+      padding: 54px clamp(22px, 8vw, 72px) 38px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .cover-frame {
+      width: calc(100% + clamp(44px, 16vw, 144px));
+      height: clamp(230px, 48vw, 360px);
+      margin: -54px calc(clamp(22px, 8vw, 72px) * -1) 34px;
+      overflow: hidden;
+      border-bottom: 4px solid var(--rose-dark);
+    }
+    .cover-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 44%;
+      animation: cover-pan 16s ease-in-out infinite alternate;
+      will-change: transform, object-position;
+    }
+    @keyframes cover-pan {
+      from { transform: scale(1.02); object-position: 50% 44%; }
+      to { transform: scale(1.1); object-position: 50% 38%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .cover-photo { animation: none; }
+    }
+    .ornament {
+      width: 112px;
+      height: 65px;
+      margin-bottom: 12px;
+      color: var(--rose);
+    }
+    .eyebrow, .section-label {
+      color: var(--rose-dark);
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+    .eyebrow { margin: 0 0 17px; }
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 2px;
+      font: 500 clamp(3.4rem, 12vw, 6.2rem)/.98 'Playfair Display', Georgia, serif;
+      letter-spacing: -.055em;
+    }
+    .name {
+      margin: 8px 0 6px;
+      color: var(--rose-dark);
+      font: 500 clamp(2.15rem, 8vw, 3.9rem)/1.15 'Playfair Display', Georgia, serif;
+    }
+    .rule {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: min(100%, 320px);
+      margin: 23px 0;
+      color: var(--rose);
+    }
+    .rule::before, .rule::after { content: ''; height: 1px; flex: 1; background: var(--line); }
+    .rule span { font-size: 1.05rem; }
+    .message {
+      max-width: 410px;
+      margin: 0;
+      color: var(--muted);
+      font: 400 1.02rem/1.75 'Playfair Display', Georgia, serif;
+    }
+    .date-block { margin: 29px 0 24px; }
+    .date {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: var(--rose-dark);
+      font: 500 1.05rem/1.2 'Playfair Display', Georgia, serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .date strong { font-size: 2.8rem; font-weight: 500; }
+    .date-side { text-align: left; font: 600 .68rem/1.65 'DM Sans', sans-serif; letter-spacing: .19em; }
+    .date-side:last-child { text-align: right; }
+    .location {
+      margin: 0;
+      color: var(--ink);
+      font: 500 1.35rem 'Playfair Display', Georgia, serif;
+    }
+    .address { margin: 7px 0 0; color: var(--muted); font-size: .87rem; }
+    .venue-photo { width: min(100%, 220px); height: 150px; margin: 16px auto 0; padding: 8px; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); }
+    .venue-photo img { display: block; max-width: 100%; max-height: 100%; object-fit: contain; }
+    .map-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; margin: 18px auto 0; padding: 11px 20px; color: #fff; background: var(--rose-dark); border-radius: 999px; text-decoration: none; font-size: .73rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; transition: background .2s, transform .2s; }
+    .map-button:hover { background: #701421; transform: translateY(-2px); }
+    .map-button svg { width: 18px; height: 18px; }
+    .details {
+      width: min(100%, 420px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 26px;
+      padding: 19px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .detail + .detail { border-left: 1px solid var(--line); }
+    .section-label { margin: 0 0 8px; font-size: .61rem; }
+    .detail p:last-child { margin: 0; font: 500 1.03rem 'Playfair Display', Georgia, serif; }
+    .rsvp { margin: 22px 0 0; color: var(--muted); font-size: .82rem; }
+    .rsvp-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 12px;
+      padding: 12px 24px;
+      color: white;
+      background: var(--rose-dark);
+      border: 0;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .77rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .rsvp-button svg { width: 25px; height: 25px; flex: none; }
+    .rsvp-button:hover { background: #774257; transform: translateY(-2px); }
+    .footer { margin: 24px 0 0; color: var(--rose-dark); font: italic 1rem 'Playfair Display', Georgia, serif; }
+    .site-nav { position: sticky; top: 0; z-index: 4; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 13px 16px; background: rgba(116, 21, 34, .97); box-shadow: 0 5px 20px rgba(59, 32, 34, .12); }
+    .site-nav a { padding: 8px 12px; color: #fff8ef; border-radius: 999px; text-decoration: none; font-size: .72rem; letter-spacing: .04em; transition: background .2s; }
+    .site-nav a:hover, .site-nav a:focus-visible { background: rgba(255,255,255,.16); outline: none; }
+    .content-section { width: min(calc(100% - 36px), 680px); margin: 0 auto 28px; padding: clamp(32px, 7vw, 58px); text-align: center; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 14px 38px rgba(93,57,73,.08); scroll-margin-top: 85px; }
+    .content-section h2 { margin: 0 0 14px; color: var(--rose-dark); font: 500 clamp(2rem, 7vw, 3rem)/1.1 'Playfair Display', Georgia, serif; }
+    .section-copy { max-width: 460px; margin: 0 auto; color: var(--muted); font: 1rem/1.75 'Playfair Display', Georgia, serif; }
+    .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 440px; margin: 28px auto 0; }
+    .count-item { padding: 16px 6px; color: var(--rose-dark); background: var(--blush); }
+    .count-item strong { display: block; font: 500 clamp(1.5rem, 6vw, 2.3rem) 'Playfair Display', Georgia, serif; }
+    .count-item span { font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; }
+    .timeline { max-width: 420px; margin: 25px auto 0; text-align: left; }
+    .timeline-item { display: grid; grid-template-columns: 92px 1fr; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--line); }
+    .timeline-item time { color: var(--rose-dark); font-weight: 600; }
+    .timeline-item span { color: var(--muted); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 25px; }
+    .gallery-item { display: block; width: 100%; padding: 0; overflow: hidden; color: inherit; background: transparent; border: 0; text-align: left; cursor: zoom-in; }
+    .gallery-frame { display: block; overflow: hidden; aspect-ratio: 4 / 5; border: 5px solid white; outline: 1px solid var(--line); background: var(--blush); }
+    .gallery-frame img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .45s ease; }
+    .gallery-item:hover img, .gallery-item:focus-visible img { transform: scale(1.06); }
+    .gallery-caption { display: block; padding: 8px 2px 0; color: var(--muted); font: italic .84rem 'Playfair Display', Georgia, serif; }
+    .story-photo { width: min(100%, 310px); margin: 26px auto 0; padding: 8px; background: #fff; border: 1px solid var(--line); box-shadow: 0 12px 28px rgba(93,57,73,.12); transform: rotate(-1deg); }
+    .story-photo img { display: block; width: 100%; max-height: 380px; object-fit: cover; object-position: center 35%; }
+    .story-photo figcaption { padding-top: 9px; color: var(--rose-dark); font: italic .9rem 'Playfair Display', Georgia, serif; }
+    .photo-viewer { width: min(92vw, 1000px); max-width: none; max-height: 92vh; padding: 12px; overflow: visible; background: #fffdf9; border: 1px solid var(--line); box-shadow: 0 20px 80px rgba(0,0,0,.35); }
+    .photo-viewer::backdrop { background: rgba(36,12,17,.82); backdrop-filter: blur(4px); }
+    .photo-viewer img { display: block; max-width: 100%; max-height: calc(92vh - 28px); margin: auto; object-fit: contain; }
+    .photo-viewer-close { position: absolute; top: -16px; right: -16px; width: 40px; height: 40px; padding: 0; color: white; background: var(--rose-dark); border: 2px solid #fffdf9; border-radius: 50%; font-size: 1.4rem; cursor: pointer; }
+    .gift-icon { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 18px; color: white; background: var(--rose-dark); border-radius: 50%; font-size: 1.4rem; }
+    .site-footer { padding: 12px 20px 40px; text-align: center; color: var(--muted); font-size: .75rem; }
+    .guest-count { display: block; margin-top: 9px; font-size: .58rem !important; letter-spacing: .08em !important; }
+    .guest-count:empty { display: none; }
+    .butterflies { position: fixed; z-index: 3; inset: 0; overflow: hidden; pointer-events: none; }
+    .butterfly { position: absolute; width: 42px; height: 42px; color: var(--gold); opacity: .78; filter: drop-shadow(0 3px 4px rgba(59,32,34,.18)); animation: butterfly-float 11s ease-in-out infinite; }
+    .butterfly svg { display: block; width: 100%; height: 100%; overflow: visible; animation: butterfly-wings 1.4s ease-in-out infinite alternate; }
+    .butterfly:nth-child(1) { left: 7%; top: 18%; animation-delay: -2s; }
+    .butterfly:nth-child(2) { left: 81%; top: 24%; color: var(--rose); animation-delay: -7s; animation-duration: 13s; transform: scale(.78); }
+    .butterfly:nth-child(3) { left: 68%; top: 71%; animation-delay: -5s; animation-duration: 15s; transform: scale(1.15); }
+    .butterfly:nth-child(4) { left: 18%; top: 78%; color: var(--rose); animation-delay: -9s; animation-duration: 12s; transform: scale(.85); }
+    .butterfly:nth-child(5) { left: 48%; top: 8%; animation-delay: -4s; animation-duration: 14s; transform: scale(.7); }
+    .butterfly:nth-child(6) { left: 91%; top: 54%; color: var(--gold); animation-delay: -1s; animation-duration: 16s; transform: scale(.9); }
+    @keyframes butterfly-float {
+      0% { translate: 0 0; rotate: -9deg; }
+      25% { translate: 30px -22px; rotate: 8deg; }
+      50% { translate: 4px 25px; rotate: -5deg; }
+      75% { translate: -26px -12px; rotate: 11deg; }
+      100% { translate: 0 0; rotate: -9deg; }
+    }
+    @keyframes butterfly-wings { from { transform: perspective(90px) rotateY(-22deg) scale(.96); } to { transform: perspective(90px) rotateY(22deg) scale(1.04); } }
+    @media (prefers-reduced-motion: reduce) { .butterfly, .butterfly svg { animation: none; } }
+
+    .welcome {
+      position: fixed;
+      z-index: 5;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background: radial-gradient(ellipse at 50% 20%, rgba(255,255,255,.12), transparent 45%), #741522;
+      transition: opacity .65s ease, visibility .65s ease;
+    }
+    .welcome.is-open { opacity: 0; visibility: hidden; pointer-events: none; }
+    .welcome-card { width: min(100%, 440px); text-align: center; color: #fff9f1; }
+    .welcome-card .eyebrow { color: #e8c99f; margin-bottom: 24px; }
+    .envelope {
+      position: relative;
+      width: min(100%, 350px);
+      height: 225px;
+      margin: 0 auto 26px;
+      perspective: 900px;
+      filter: drop-shadow(0 22px 26px rgba(38, 5, 10, .3));
+    }
+    .envelope-back, .envelope-front { position: absolute; inset: 0; border-radius: 7px; }
+    .envelope-back { background: #c73a46; }
+    .envelope-letter {
+      position: absolute;
+      left: 8%; right: 8%; bottom: 12px; height: 82%;
+      display: flex; flex-direction: column; justify-content: center; align-items: center;
+      color: var(--ink); background: #fffaf3; border: 1px solid #ead8c9;
+      transition: transform .8s .35s ease;
+    }
+    .envelope-letter small { color: var(--rose-dark); font-size: .62rem; letter-spacing: .19em; text-transform: uppercase; }
+    .envelope-letter strong { margin-top: 9px; max-width: 90%; overflow-wrap: anywhere; font: 500 1.65rem 'Playfair Display', Georgia, serif; }
+    .flap {
+      position: absolute; z-index: 3; top: 0; left: 0; width: 100%; height: 60%;
+      background: #d44953; clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top; transition: transform .55s ease; backface-visibility: hidden;
+    }
+    .envelope-front {
+      z-index: 2; background: linear-gradient(145deg, transparent 49.5%, #b22c3b 50%) left / 50% 100% no-repeat,
+                  linear-gradient(215deg, transparent 49.5%, #c33745 50%) right / 50% 100% no-repeat;
+      pointer-events: none;
+    }
+    .seal {
+      position: absolute; z-index: 4; left: 50%; top: 50%; transform: translate(-50%, -10%);
+      width: 48px; height: 48px; display: grid; place-items: center; border-radius: 50%;
+      color: #fff3de; background: var(--gold); border: 2px solid #e8c995; font: 1.2rem 'Playfair Display', serif;
+      transition: opacity .3s;
+    }
+    .welcome.is-open .flap { transform: rotateX(180deg); }
+    .welcome.is-open .envelope-letter { transform: translateY(-95px); }
+    .welcome.is-open .seal { opacity: 0; }
+    .open-button {
+      margin-top: 15px; padding: 12px 25px; color: #701421; background: #f5e6ce;
+      border: 0; border-radius: 999px; font: 600 .76rem 'DM Sans', sans-serif;
+      letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+      transition: background .2s, transform .2s;
+    }
+    .open-button:hover { background: white; transform: translateY(-2px); }
+    .hint { margin: 11px 0 0; color: #e8c9c5; font-size: .72rem; }
+
+    @media (max-width: 520px) {
+      .page { padding: 14px 10px; }
+      .invitation { padding: 11px; }
+      .invitation::before { inset: 11px; }
+      .inner { min-height: 0; padding: 43px 20px 31px; }
+      .cover-frame { width: calc(100% + 40px); height: 255px; margin: -43px -20px 28px; }
+      .ornament { width: 88px; height: 52px; }
+      .message { font-size: .96rem; }
+      .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+      .photo-viewer-close { top: -12px; right: -8px; }
+    }
+    @media print {
+      body, .page { background: white; }
+      .page { min-height: 0; padding: 0; }
+      .invitation { width: 100%; box-shadow: none; }
+      .rsvp a { color: var(--rose-dark); background: transparent; border: 1px solid var(--rose-dark); }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="Menú de la invitación">
+    <a href="#inicio">Inicio</a>
+    <a href="#cuenta-regresiva">Cuenta regresiva</a>
+    <a href="#mi-historia">Mi historia</a>
+    <a href="#galeria">Galería</a>
+    <a href="#itinerario">Itinerario</a>
+    <a href="#lluvia-de-sobres">Lluvia de sobres</a>
+  </nav>
+  <div class="butterflies" aria-hidden="true">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="butterfly-art" viewBox="0 0 64 64">
+      <g fill="currentColor" stroke="#fff0d7" stroke-width=".8" stroke-linejoin="round">
+        <path d="M31 30C25 18 14 7 7 10 0 14 5 27 17 31c-8 2-11 9-7 15 5 7 14-1 20-12Z"/>
+        <path d="M33 30C39 18 50 7 57 10c7 4 2 17-10 21 8 2 11 9 7 15-5 7-14-1-20-12Z"/>
+      </g>
+      <g fill="none" stroke="#fff0d7" stroke-width="1" opacity=".8"><path d="M31 31 10 15M30 33 13 39M33 31 54 15M34 33l17 6"/></g>
+      <g fill="#fff0d7"><circle cx="14" cy="23" r="2.4"/><circle cx="19" cy="42" r="2"/><circle cx="50" cy="23" r="2.4"/><circle cx="45" cy="42" r="2"/></g>
+      <path d="M32 25c-2 7-2 14 0 21M31 26c-2-5-5-7-8-8M33 26c2-5 5-7 8-8" fill="none" stroke="#6e2530" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="32" cy="25" r="2" fill="#6e2530"/>
+    </symbol></defs></svg>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+    <span class="butterfly"><svg viewBox="0 0 64 64"><use href="#butterfly-art"/></svg></span>
+  </div>
+  <main>
+    <section class="page" id="inicio">
+    <article class="invitation" aria-label="Invitación a una celebración de quince años">
+      <div class="inner">
+        <div class="cover-frame"><img class="cover-photo" src="assets/img/portadamajo.png" alt="María José en su vestido de quinceañera"></div>
+        <svg class="ornament" viewBox="0 0 120 70" fill="none" aria-hidden="true">
+          <path d="M60 62C48 49 27 34 27 19c0-8 6-13 13-13 9 0 15 8 20 16 5-8 11-16 20-16 7 0 13 5 13 13 0 15-21 30-33 43Z" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M60 60V26M60 42c-8-9-16-13-25-15M60 48c8-10 16-15 26-18" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M36 27c-7-2-10-7-9-12 6 0 10 4 11 10M84 30c7-2 10-7 9-12-6 0-10 4-11 10" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="60" cy="8" r="2" fill="currentColor"/>
+        </svg>
+        <p class="eyebrow">Con la bendición de Dios y de mis padres</p>
+        <h1>Mis XV</h1>
+        <p class="name">María José</p>
+        <div class="rule" aria-hidden="true"><span>✦</span></div>
+        <p class="message">Hay momentos en la vida que imaginamos, soñamos y esperamos con ilusión. Hoy quiero compartir contigo uno de los más especiales: el comienzo de una nueva etapa.</p>
+
+        <p class="section-label">Fecha de la ceremonia</p>
+        <div class="date-block">
+          <div class="date">
+            <span class="date-side">JUEVES<br>2027</span>
+            <strong>21</strong>
+            <span class="date-side">ENERO</span>
+          </div>
+        </div>
+        <p class="section-label">Fiesta y recepción · sábado 30 de enero de 2027</p>
+        <h2 class="location">Restaurante El Alfarero</h2>
+        <p class="address">6:00 p. m. · Popayán, Cauca</p>
+        <figure class="venue-photo">
+          <img src="assets/img/alfarero.jpg" alt="Imagen de Restaurante El Alfarero">
+        </figure>
+        <a class="map-button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Restaurante%20El%20Alfarero%2C%20Popay%C3%A1n%2C%20Cauca" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.3" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Cómo llegar</span>
+        </a>
+
+        <div class="details">
+          <div class="detail">
+            <p class="section-label">Ceremonia</p>
+            <p>21 de enero · 4:00 p. m.</p>
+          </div>
+          <div class="detail">
+            <p class="section-label">Fiesta</p>
+            <p>30 de enero · 6:00 p. m.</p>
+          </div>
+        </div>
+        <p class="rsvp">Agradezco confirmar tu asistencia</p>
+        <a class="rsvp-button" id="rsvp-button" href="#" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#25D366"/><path d="M19.8 11.8a7.9 7.9 0 0 1-11.7 6.9L4 20l1.2-3.9a7.9 7.9 0 1 1 14.6-4.3Z" fill="none" stroke="#fff" stroke-width="1.4" stroke-linejoin="round"/><path d="M9.1 7.7c-.2-.2-.5-.3-.7-.3h-.6c-.2 0-.5.1-.7.3-.3.3-.9.9-.9 2.1s.9 2.4 1.1 2.6c.1.2 1.8 2.8 4.4 3.8.5.2 1 .4 1.4.4.6.1 1.1.1 1.6-.1.5-.2 1.7-.7 1.9-1.4.2-.7.2-1.3.1-1.4-.1-.1-.3-.2-.5-.3l-1.8-.9c-.2-.1-.4-.1-.5.1-.2.2-.7.8-.9 1-.2.2-.3.2-.6.1-.3-.1-1.1-.4-1.9-1.1-.7-.6-1.1-1.3-1.3-1.6-.1-.2 0-.3.1-.5l.4-.5c.1-.1.2-.3.2-.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4H9.1Z" fill="#fff"/></svg>
+          <span>Confirmar por WhatsApp</span>
+        </a>
+        <p class="footer">¡Será una alegría celebrar contigo!</p>
+      </div>
+    </article>
+    </section>
+    <section class="content-section" id="cuenta-regresiva">
+      <p class="section-label">Cuenta regresiva para la fiesta</p>
+      <h2>Cuenta regresiva</h2>
+      <p class="section-copy">Estoy contando los días para compartir contigo una noche inolvidable.</p>
+      <div class="countdown" aria-label="Cuenta regresiva hasta la celebración">
+        <div class="count-item"><strong id="days">—</strong><span>Días</span></div>
+        <div class="count-item"><strong id="hours">—</strong><span>Horas</span></div>
+        <div class="count-item"><strong id="minutes">—</strong><span>Minutos</span></div>
+        <div class="count-item"><strong id="seconds">—</strong><span>Segundos</span></div>
+      </div>
+    </section>
+    <section class="content-section" id="mi-historia">
+      <p class="section-label">Un nuevo capítulo</p>
+      <h2>Mi historia</h2>
+      <p class="section-copy">Quince años llenos de sueños, aprendizajes y momentos que guardo en el corazón. Hoy comienzo una nueva etapa rodeada de las personas que más quiero. Gracias por ser parte de mi historia y acompañarme en este día tan especial.</p>
+      <figure class="story-photo">
+        <img src="assets/img/maria-jose.png" alt="Majo celebrando sus quince años con globos del número 15" loading="lazy">
+        <figcaption>Mis quince años</figcaption>
+      </figure>
+    </section>
+    <section class="content-section" id="galeria">
+      <p class="section-label">Recuerdos que llevo en el corazón</p>
+      <h2>Galería de fotos</h2>
+      <p class="section-copy">Un recorrido por algunos de mis momentos favoritos.</p>
+      <div class="gallery-grid">
+        <button class="gallery-item" type="button" data-image="assets/img/conbb.jpg" data-alt="María José en un recuerdo de su infancia">
+          <span class="gallery-frame"><img src="assets/img/conbb.jpg" alt="María José de niña con su muñeca" loading="lazy"></span><span class="gallery-caption">Un recuerdo de mi infancia</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/lostres.jpg" data-alt="Un recuerdo familiar de María José">
+          <span class="gallery-frame"><img src="assets/img/lostres.jpg" alt="María José con su familia y su perro" loading="lazy"></span><span class="gallery-caption">Momentos en familia</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/maravilla.jpg" data-alt="María José de niña junto a su mamá">
+          <span class="gallery-frame"><img src="assets/img/maravilla.jpg" alt="María José de niña junto a su mamá" loading="lazy"></span><span class="gallery-caption">Con mucho cariño</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/gitana.jpg" data-alt="María José en una celebración temática">
+          <span class="gallery-frame"><img src="assets/img/gitana.jpg" alt="María José en un recuerdo de una celebración temática" loading="lazy"></span><span class="gallery-caption">Un día especial</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/morro.jpg" data-alt="María José de paseo">
+          <span class="gallery-frame"><img src="assets/img/morro.jpg" alt="María José disfrutando un paseo" loading="lazy"></span><span class="gallery-caption">Días de paseo</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/palma.jpg" data-alt="María José al aire libre">
+          <span class="gallery-frame"><img src="assets/img/palma.jpg" alt="María José de niña junto a una palma" loading="lazy"></span><span class="gallery-caption">Al aire libre</span>
+        </button>
+        <button class="gallery-item" type="button" data-image="assets/img/portadamajo1.png" data-alt="María José con su vestido de quinceañera">
+          <span class="gallery-frame"><img src="assets/img/portadamajo1.png" alt="María José con su vestido de quinceañera y el número quince" loading="lazy"></span><span class="gallery-caption">Un sueño hecho realidad</span>
+        </button>
+      </div>
+    </section>
+    <section class="content-section" id="itinerario">
+      <p class="section-label">Acompáñame</p>
+      <h2>Itinerario</h2>
+      <p class="section-copy">La ceremonia y la fiesta serán en días distintos. Estas son las fechas y los horarios.</p>
+      <div class="timeline">
+        <div class="timeline-item"><time>Jue. 21 ene. · 4:00 p. m.</time><span>Ceremonia</span></div>
+        <div class="timeline-item"><time>Sáb. 30 ene. · 5:00 p. m.</time><span>Recepción y bienvenida</span></div>
+        <div class="timeline-item"><time>Sáb. 30 ene. · 6:00 p. m.</time><span>Vals y celebración</span></div>
+        <div class="timeline-item"><time>Sáb. 30 ene. · 7:00 p. m.</time><span>Cena y baile</span></div>
+      </div>
+    </section>
+    <section class="content-section" id="lluvia-de-sobres">
+      <div class="gift-icon" aria-hidden="true">♡</div>
+      <p class="section-label">Tu compañía es mi mejor regalo</p>
+      <h2>Lluvia de sobres</h2>
+      <p class="section-copy">Si deseas hacerme un obsequio, tendremos lluvia de sobres durante la celebración. ¡Gracias por tu cariño y por acompañarme!</p>
+    </section>
+  </main>
+  <footer class="site-footer">Con cariño, María José · Mis XV años</footer>
+  <dialog class="photo-viewer" id="photo-viewer" aria-label="Foto ampliada">
+    <button class="photo-viewer-close" id="photo-viewer-close" type="button" aria-label="Cerrar foto">×</button>
+    <img id="photo-viewer-image" src="" alt="">
+  </dialog>
+  <section class="welcome" id="welcome" aria-label="Sobre de invitación">
+    <div class="welcome-card">
+      <p class="eyebrow">Tienes una invitación especial</p>
+      <div class="envelope" aria-hidden="true">
+        <div class="envelope-back"></div>
+        <div class="envelope-letter"><small>Invitación personal para</small><strong id="guest-name">Invitado especial</strong><small class="guest-count" id="guest-count"></small></div>
+        <div class="flap"></div>
+        <div class="envelope-front"></div>
+        <div class="seal">M</div>
+      </div>
+      <button class="open-button" id="open-invitation" type="button">Abrir invitación</button>
+      <p class="hint">Con cariño, María José</p>
+    </div>
+  </section>
+  <script>
+    const welcome = document.getElementById('welcome');
+    const guestName = document.getElementById('guest-name');
+    const guestCount = document.getElementById('guest-count');
+    const rsvpButton = document.getElementById('rsvp-button');
+    const openButton = document.getElementById('open-invitation');
+    const inviteParams = new URLSearchParams(window.location.search);
+    const invitee = (inviteParams.get('invitado') || '').trim();
+    const invitedPeople = Number.parseInt(inviteParams.get('personas'), 10);
+
+    if (invitee) {
+      guestName.textContent = invitee;
+      if (Number.isInteger(invitedPeople) && invitedPeople > 0) {
+        guestCount.textContent = 'Válida para ' + invitedPeople + ' ' + (invitedPeople === 1 ? 'persona' : 'personas');
+      }
+    }
+
+    const guestDetails = invitee ? 'Nombre: ' + invitee + '\n' : 'Nombre: [escribe tu nombre]\n';
+    const seatDetails = Number.isInteger(invitedPeople) && invitedPeople > 0
+      ? 'Cupo de la invitación: ' + invitedPeople + (invitedPeople === 1 ? ' persona' : ' personas') + '\n'
+      : '';
+    const confirmationMessage = 'Hola, quiero confirmar mi asistencia a los XV años de María José.\n\n'
+      + guestDetails + seatDetails + 'Personas que asistirán: [indica la cantidad]\n\n¡Nos vemos en la celebración!';
+    rsvpButton.href = 'https://wa.me/573015442579?text=' + encodeURIComponent(confirmationMessage);
+    const eventDate = new Date('2027-01-30T18:00:00-05:00').getTime();
+    const updateCountdown = () => {
+      const remaining = Math.max(0, eventDate - Date.now());
+      const values = {
+        days: Math.floor(remaining / 86400000),
+        hours: Math.floor((remaining % 86400000) / 3600000),
+        minutes: Math.floor((remaining % 3600000) / 60000),
+        seconds: Math.floor((remaining % 60000) / 1000)
+      };
+      Object.entries(values).forEach(([id, value]) => { document.getElementById(id).textContent = String(value).padStart(2, '0'); });
+    };
+    updateCountdown();
+    window.setInterval(updateCountdown, 1000);
+
+    openButton.addEventListener('click', () => {
+      welcome.classList.add('is-open');
+      window.setTimeout(() => document.querySelector('.name').scrollIntoView({ behavior: 'smooth', block: 'center' }), 450);
+    });
+
+    const photoViewer = document.getElementById('photo-viewer');
+    const photoViewerImage = document.getElementById('photo-viewer-image');
+    document.querySelectorAll('.gallery-item').forEach((photo) => {
+      photo.addEventListener('click', () => {
+        photoViewerImage.src = photo.dataset.image;
+        photoViewerImage.alt = photo.dataset.alt;
+        photoViewer.showModal();
+      });
+    });
+    document.getElementById('photo-viewer-close').addEventListener('click', () => photoViewer.close());
+    photoViewer.addEventListener('click', (event) => {
+      if (event.target === photoViewer) photoViewer.close();
+    });
+  </script>
+</body>
+</html>

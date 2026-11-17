@@ -1,0 +1,250 @@
+/*==================================================
+                ROYAL XV PREMIUM
+                FOOTER.CSS
+==================================================*/
+
+/*==========================================
+            FOOTER
+==========================================*/
+
+.footer{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:120px 20px 70px;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+    180deg,
+    #fef8fb,
+    #f7dce8);
+
+}
+
+/*==========================================
+            LOGO
+==========================================*/
+
+.footer-logo{
+
+    width:130px;
+
+    margin:auto;
+
+    animation:
+    floating 5s ease-in-out infinite;
+
+}
+
+/*==========================================
+            MONOGRAMA
+==========================================*/
+
+.footer-monogram{
+
+    width:160px;
+
+    height:160px;
+
+    margin:40px auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:2px solid rgba(212,175,55,.45);
+
+    background:
+
+    rgba(255,255,255,.45);
+
+    backdrop-filter:blur(12px);
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.12);
+
+}
+
+.footer-monogram h2{
+
+    font-size:4rem;
+
+    color:var(--primary);
+
+}
+
+/*==========================================
+            FRASE
+==========================================*/
+
+.footer-message{
+
+    max-width:700px;
+
+    margin:35px auto;
+
+    font-size:1.15rem;
+
+    line-height:1.9;
+
+    color:#555;
+
+}
+
+/*==========================================
+            REDES
+==========================================*/
+
+.footer-social{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:40px 0;
+
+}
+
+.footer-social a{
+
+    width:55px;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:var(--gradient-gold);
+
+    color:#fff;
+
+    transition:.35s;
+
+}
+
+.footer-social a:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/*==========================================
+            COPYRIGHT
+==========================================*/
+
+.footer-copy{
+
+    margin-top:50px;
+
+    font-size:.95rem;
+
+    color:#777;
+
+}
+
+/*==========================================
+            DECORACIÓN
+==========================================*/
+
+.footer::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+
+    height:420px;
+
+    border-radius:50%;
+
+    left:-180px;
+
+    top:-100px;
+
+    background:
+
+    radial-gradient(
+
+    rgba(212,175,55,.18),
+
+    transparent);
+
+    filter:blur(40px);
+
+}
+
+.footer::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:320px;
+
+    height:320px;
+
+    right:-120px;
+
+    bottom:-60px;
+
+    border-radius:50%;
+
+    background:
+
+    radial-gradient(
+
+    rgba(248,200,220,.25),
+
+    transparent);
+
+}
+
+/*==========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:768px){
+
+.footer{
+
+padding:90px 20px 60px;
+
+}
+
+.footer-monogram{
+
+width:130px;
+height:130px;
+
+}
+
+.footer-monogram h2{
+
+font-size:3rem;
+
+}
+
+.footer-message{
+
+font-size:1rem;
+
+}
+
+}

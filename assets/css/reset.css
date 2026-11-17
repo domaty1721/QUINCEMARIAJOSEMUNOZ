@@ -1,0 +1,398 @@
+/*==================================================
+            ROYAL XV PREMIUM
+                RESET CSS
+==================================================*/
+
+/*==========================================
+            RESET GENERAL
+==========================================*/
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+/*==========================================
+            HTML
+==========================================*/
+
+html{
+
+    font-size:16px;
+    scroll-behavior:smooth;
+
+}
+
+/*==========================================
+            BODY
+==========================================*/
+
+body{
+
+    font-family:var(--font-body);
+
+    font-size:var(--fs-body);
+
+    font-weight:400;
+
+    color:var(--dark);
+
+    background:var(--bg-color);
+
+    overflow-x:hidden;
+
+    line-height:1.7;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+
+}
+
+/*==========================================
+            IMÁGENES
+==========================================*/
+
+img{
+
+    display:block;
+
+    width:100%;
+
+    max-width:100%;
+
+    height:auto;
+
+    user-select:none;
+
+}
+
+/*==========================================
+            ENLACES
+==========================================*/
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+    transition:all var(--transition);
+
+}
+
+/*==========================================
+            LISTAS
+==========================================*/
+
+ul,
+ol{
+
+    list-style:none;
+
+}
+
+/*==========================================
+            BOTONES
+==========================================*/
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    cursor:pointer;
+
+    background:none;
+
+    font-family:inherit;
+
+}
+
+/*==========================================
+            INPUTS
+==========================================*/
+
+input,
+textarea,
+select{
+
+    font:inherit;
+
+    outline:none;
+
+}
+
+/*==========================================
+            TITULOS
+==========================================*/
+
+h1{
+
+    font-family:var(--font-title);
+
+    font-size:var(--fs-hero);
+
+    font-weight:400;
+
+}
+
+h2{
+
+    font-family:var(--font-heading);
+
+    font-size:var(--fs-h2);
+
+    font-weight:700;
+
+}
+
+h3{
+
+    font-family:var(--font-heading);
+
+    font-size:var(--fs-h3);
+
+}
+
+/*==========================================
+            PARRAFOS
+==========================================*/
+
+p{
+
+    color:var(--gray);
+
+}
+
+/*==========================================
+            CONTENEDOR
+==========================================*/
+
+.container{
+
+    width:min(100% - 40px, var(--container-width));
+
+    margin-inline:auto;
+
+}
+
+/*==========================================
+            SECCIONES
+==========================================*/
+
+.section{
+
+    position:relative;
+
+    padding:var(--space-xxl) 0;
+
+}
+
+/*==========================================
+            ENCABEZADOS
+==========================================*/
+
+.section-header{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.section-subtitle{
+
+    display:inline-block;
+
+    color:var(--primary);
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    margin-bottom:10px;
+
+    font-size:.9rem;
+
+    font-weight:600;
+
+}
+
+.section-title{
+
+    margin-bottom:20px;
+
+}
+
+.section-description{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+/*==========================================
+            DIVISOR
+==========================================*/
+
+.divider{
+
+    width:90px;
+
+    height:4px;
+
+    margin:25px auto;
+
+    border-radius:50px;
+
+    background:var(--gradient-gold);
+
+}
+
+/*==========================================
+            GLASS CARD
+==========================================*/
+
+.glass{
+
+    background:var(--glass-bg);
+
+    backdrop-filter:blur(var(--glass-blur));
+
+    border:1px solid var(--glass-border);
+
+    border-radius:var(--card-radius);
+
+}
+
+/*==========================================
+            TARJETAS
+==========================================*/
+
+.card{
+
+    background:#fff;
+
+    border-radius:var(--card-radius);
+
+    padding:var(--card-padding);
+
+    box-shadow:var(--shadow-sm);
+
+}
+
+/*==========================================
+            BOTÓN PREMIUM
+==========================================*/
+
+.btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:10px;
+
+    min-height:var(--btn-height);
+
+    padding:var(--btn-padding);
+
+    border-radius:var(--btn-radius);
+
+    background:var(--gradient-gold);
+
+    color:#fff;
+
+    font-weight:600;
+
+    transition:.4s;
+
+}
+
+.btn:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--gold-shadow);
+
+}
+
+/*==========================================
+            REVEAL
+==========================================*/
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(80px);
+
+}
+
+/*==========================================
+            UTILIDADES
+==========================================*/
+
+.text-center{
+
+    text-align:center;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.shadow{
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.radius{
+
+    border-radius:var(--card-radius);
+
+}
+
+/*==========================================
+            SCROLLBAR
+==========================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#f3f3f3;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--primary-dark);
+
+}

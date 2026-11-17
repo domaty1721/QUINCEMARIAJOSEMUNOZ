@@ -1,0 +1,336 @@
+/*==================================================
+                ROYAL XV PREMIUM
+                PARENTS.CSS
+==================================================*/
+
+
+/*==========================================
+            SECCIÓN
+==========================================*/
+
+.parents,
+.godparents{
+
+    position:relative;
+
+    background:
+
+    linear-gradient(
+    180deg,
+    #fffafc,
+    #ffffff);
+
+    overflow:hidden;
+
+}
+
+
+/*==========================================
+            GRID
+==========================================*/
+
+.parents-grid{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(2,1fr);
+
+    gap:50px;
+
+    margin-top:70px;
+
+}
+
+
+/*==========================================
+            TARJETA
+==========================================*/
+
+.parent-card{
+
+    position:relative;
+
+    text-align:center;
+
+    padding:45px 30px;
+
+    border-radius:35px;
+
+    background:
+
+    rgba(255,255,255,.80);
+
+    backdrop-filter:blur(15px);
+
+    border:
+
+    1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.12);
+
+    transition:.45s;
+
+}
+
+
+/*==========================================
+            HOVER
+==========================================*/
+
+.parent-card:hover{
+
+    transform:
+
+    translateY(-10px);
+
+    box-shadow:
+
+    0 35px 60px rgba(212,175,55,.25);
+
+}
+
+
+/*==========================================
+            FOTO
+==========================================*/
+
+.parent-card img{
+
+    width:180px;
+
+    height:180px;
+
+    margin:auto;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:8px solid #fff;
+
+    box-shadow:
+
+    0 12px 35px rgba(0,0,0,.18);
+
+    transition:.5s;
+
+}
+
+
+.parent-card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+
+/*==========================================
+            MARCO DORADO
+==========================================*/
+
+.parent-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border-radius:30px;
+
+    border:2px solid rgba(212,175,55,.35);
+
+    pointer-events:none;
+
+}
+
+
+/*==========================================
+            NOMBRE
+==========================================*/
+
+.parent-card h3{
+
+    margin-top:30px;
+
+    color:var(--primary);
+
+    font-size:1.8rem;
+
+}
+
+
+/*==========================================
+            TEXTO
+==========================================*/
+
+.parent-card p{
+
+    margin-top:12px;
+
+    color:#666;
+
+}
+
+
+/*==========================================
+            BRILLO
+==========================================*/
+
+.parent-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:80px;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.8),
+    transparent);
+
+    transform:skewX(-20deg);
+
+    transition:.8s;
+
+}
+
+
+.parent-card:hover::after{
+
+    left:140%;
+
+}
+
+
+/*==========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:900px){
+
+.parents-grid{
+
+grid-template-columns:1fr;
+
+gap:35px;
+
+}
+
+}
+
+
+@media(max-width:576px){
+
+.parent-card{
+
+padding:35px 20px;
+
+}
+
+.parent-card img{
+
+width:150px;
+
+height:150px;
+
+}
+
+.parent-card h3{
+
+font-size:1.5rem;
+
+}
+
+}
+.parents-card{
+
+    max-width:700px;
+
+    margin:0 auto;
+
+    padding:45px 35px;
+
+    text-align:center;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.parents-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#d4af37,#f3d36a);
+
+    color:#fff;
+
+    font-size:32px;
+
+}
+
+.parents-message{
+
+    font-family:var(--font-script);
+
+    font-size:1.4rem;
+
+    color:var(--primary);
+
+    margin-bottom:15px;
+
+}
+
+.parents-names{
+
+    font-size:2rem;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+    line-height:1.5;
+
+}
+
+.parents-text{
+
+    max-width:520px;
+
+    margin:0 auto;
+
+    line-height:1.8;
+
+    color:#666;
+
+}

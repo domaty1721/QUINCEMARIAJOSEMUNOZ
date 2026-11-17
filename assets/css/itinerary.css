@@ -1,0 +1,83 @@
+.itinerary-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+.event-card{
+
+    background:#fff;
+
+    border-radius:25px;
+
+    padding:35px 30px;
+
+    text-align:center;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.event-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.15);
+
+}
+
+.event-icon{
+
+    width:80px;
+
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#d4af37,#f3d36a);
+
+    color:#fff;
+
+    font-size:30px;
+
+    margin-bottom:20px;
+
+}
+
+.event-card h3{
+
+    margin-bottom:12px;
+
+    color:var(--primary);
+
+}
+
+.event-time{
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+    color:#d4af37;
+
+    font-size:1.1rem;
+
+}

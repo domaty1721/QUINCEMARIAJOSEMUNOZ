@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Crear invitaciones | XV de María José</title>
+  <style>
+    :root { --wine: #741522; --red: #8d1727; --gold: #c69b61; --ink: #3b2022; --muted: #80696a; --paper: #fffdf9; --line: #ead5cf; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; margin: 0; display: grid; place-items: center; padding: 24px 14px; color: var(--ink); font-family: 'DM Sans', Arial, sans-serif; background: radial-gradient(ellipse at 10% 15%, #f3deda, transparent 35%), #f7efec; }
+    main { width: min(100%, 600px); padding: clamp(24px, 7vw, 52px); background: var(--paper); border: 1px solid var(--line); box-shadow: 0 20px 60px rgba(59,32,34,.13); }
+    .eyebrow { margin: 0 0 12px; color: var(--red); font-size: .7rem; font-weight: 600; letter-spacing: .2em; text-align: center; text-transform: uppercase; }
+    h1 { margin: 0; color: var(--red); font: 500 clamp(2rem, 8vw, 3rem)/1.1 'Playfair Display', Georgia, serif; text-align: center; }
+    .intro { max-width: 430px; margin: 16px auto 28px; color: var(--muted); font: 1rem/1.7 Georgia, serif; text-align: center; }
+    form { display: grid; gap: 15px; }
+    label { display: grid; gap: 7px; color: var(--red); font-size: .78rem; font-weight: 600; }
+    input { width: 100%; padding: 12px 13px; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 4px; font: .95rem Arial, sans-serif; }
+    input:focus { outline: 2px solid rgba(182,46,59,.2); border-color: var(--red); }
+    .note { margin: -4px 0 0; color: var(--muted); font-size: .76rem; line-height: 1.55; }
+    button, .actions a { display: inline-block; padding: 13px 18px; color: white; background: var(--red); border: 0; border-radius: 999px; text-align: center; text-decoration: none; font: 600 .75rem Arial, sans-serif; letter-spacing: .06em; cursor: pointer; }
+    button:hover, .actions a:hover { background: var(--wine); }
+    #result { display: none; margin-top: 24px; }
+    #result.visible { display: block; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .message { margin-top: 14px; color: var(--muted); font-size: .76rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="eyebrow">Herramienta privada para organizar</p>
+    <h1>Crear invitaciones</h1>
+    <p class="intro">Prepara un enlace distinto para cada persona o familia. Al abrirlo, verán su nombre y el número de invitados permitido.</p>
+    <form id="form">
+      <label for="base-url">Enlace público de la invitación
+        <input id="base-url" type="url" placeholder="https://tu-sitio.com/index.html" required>
+      </label>
+      <p class="note">Primero publica la invitación y pega aquí su dirección web. La ruta local de tu computador no se puede abrir desde WhatsApp.</p>
+      <label for="guest">Nombre del invitado o familia
+        <input id="guest" type="text" maxlength="48" placeholder="Ej. Camila y familia" required>
+      </label>
+      <label for="people">Cantidad de personas invitadas
+        <input id="people" type="number" min="1" max="30" value="2" required>
+      </label>
+      <button type="submit">Crear enlace personalizado</button>
+    </form>
+    <section id="result" aria-live="polite">
+      <label for="link">Enlace personalizado</label>
+      <input id="link" type="url" readonly>
+      <div class="actions">
+        <button id="copy" type="button">Copiar enlace</button>
+        <a id="whatsapp" href="#" target="_blank" rel="noopener noreferrer">Enviar por WhatsApp</a>
+      </div>
+      <p class="message" id="copy-message"></p>
+    </section>
+  </main>
+  <script>
+    const baseUrl = document.getElementById('base-url');
+    if (['http:', 'https:'].includes(location.protocol) && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+      baseUrl.value = location.origin + location.pathname.replace(/personalizar\.html$/, 'index.html');
+    }
+    baseUrl.addEventListener('input', () => baseUrl.setCustomValidity(''));
+
+    document.getElementById('form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const base = new URL(baseUrl.value.trim());
+      if (!['http:', 'https:'].includes(base.protocol)) {
+        baseUrl.setCustomValidity('Usa una dirección web pública que empiece por https://');
+        baseUrl.reportValidity();
+        return;
+      }
+      const name = document.getElementById('guest').value.trim();
+      const count = Math.min(30, Math.max(1, Number.parseInt(document.getElementById('people').value, 10) || 1));
+      base.searchParams.set('invitado', name);
+      base.searchParams.set('personas', String(count));
+      document.getElementById('link').value = base.toString();
+      const text = 'Hola, ' + name + '. María José te invita a celebrar sus XV años. Esta invitación es válida para '
+        + count + ' ' + (count === 1 ? 'persona' : 'personas') + ': ' + base.toString();
+      document.getElementById('whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(text);
+      document.getElementById('result').classList.add('visible');
+    });
+
+    document.getElementById('copy').addEventListener('click', async () => {
+      const link = document.getElementById('link');
+      try {
+        await navigator.clipboard.writeText(link.value);
+        document.getElementById('copy-message').textContent = 'Enlace copiado.';
+      } catch {
+        link.focus();
+        link.select();
+        document.execCommand('copy');
+        document.getElementById('copy-message').textContent = 'Enlace copiado.';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,362 @@
+/*==================================================
+            CALENDARIO PREMIUM
+==================================================*/
+
+.date-card{
+
+    position: relative;
+
+    width: min(430px, 100%);
+
+    max-width: 95%;
+
+    margin: 40px auto;
+
+}
+
+.calendar-rings{
+
+    position: absolute;
+
+    top: -18px;
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    z-index: 10;
+
+}
+
+.calendar-rings span{
+
+    width: 18px;
+
+    height: 38px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        180deg,
+        #f7dfa0,
+        #c89b2c);
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,.5),
+        0 3px 8px rgba(0,0,0,.15);
+
+}
+
+.calendar-header{
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #f0d27b);
+
+    color: #fff;
+
+    text-align: center;
+
+    padding: 22px;
+
+    border-radius: clamp(18px,4vw,28px) clamp(18px,4vw,28px) 0 0;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+
+}
+
+.calendar-header i{
+
+    margin-right: 10px;
+
+}
+
+.calendar-sheet{
+
+    background: #fff;
+
+    padding: 30px;
+
+    border-radius: 0 0 clamp(18px,4vw,28px) clamp(18px,4vw,28px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.10);
+
+}
+
+.calendar-week{
+
+    display: grid;
+
+    grid-template-columns: repeat(7,1fr);
+
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    color: #b48a25;
+
+    font-weight: 700;
+
+}
+
+.calendar-grid{
+
+    display: grid;
+
+    grid-template-columns: repeat(7,1fr);
+
+    gap: 10px;
+
+}
+
+.calendar-grid span{
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: min(42px,100%);
+
+    aspect-ratio: 1;
+
+    margin: auto;
+
+    border-radius: 50%;
+
+    font-weight: 500;
+
+    color: #666;
+
+    transition: .3s;
+
+}
+
+.active-day{
+
+    background: linear-gradient(
+        135deg,
+        #d4af37,
+        #f3d98b);
+
+    color: #fff !important;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 18px rgba(212,175,55,.35);
+
+    transform: scale(1.12);
+
+}
+
+.calendar-footer{
+
+    margin-top: 30px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #ececec;
+
+    text-align: center;
+
+    font-size: 18px;
+
+    color: #666;
+
+}
+
+.calendar-footer i{
+
+    color: #d4af37;
+
+    margin-right: 8px;
+
+}
+
+/*==================================================
+                TABLETS
+==================================================*/
+
+@media (max-width:768px){
+
+    .date-card{
+
+        width:95%;
+
+    }
+
+    .calendar-header{
+
+        padding:18px;
+
+        font-size:18px;
+
+    }
+
+    .calendar-sheet{
+
+        padding:20px;
+
+    }
+
+    .calendar-week{
+
+        font-size:13px;
+
+    }
+
+    .calendar-grid{
+
+        gap:6px;
+
+    }
+
+    .calendar-grid span{
+
+        width:min(38px,100%);
+
+        font-size:14px;
+
+    }
+
+    .calendar-footer{
+
+        font-size:16px;
+
+    }
+
+}
+
+/*==================================================
+            CELULARES
+==================================================*/
+
+@media (max-width:480px){
+
+    .date-card{
+
+        width:100%;
+
+        max-width:100%;
+
+        margin:30px auto;
+
+    }
+
+    .calendar-rings{
+
+        top:-15px;
+
+    }
+
+    .calendar-rings span{
+
+        width:14px;
+
+        height:30px;
+
+    }
+
+    .calendar-header{
+
+        padding:15px;
+
+        font-size:16px;
+
+        letter-spacing:1px;
+
+    }
+
+    .calendar-sheet{
+
+        padding:15px;
+
+    }
+
+    .calendar-week{
+
+        font-size:11px;
+
+        margin-bottom:12px;
+
+    }
+
+    .calendar-grid{
+
+        gap:4px;
+
+    }
+
+    .calendar-grid span{
+
+        width:min(32px,100%);
+
+        font-size:12px;
+
+    }
+
+    .active-day{
+
+        transform:scale(1.05);
+
+    }
+
+    .calendar-footer{
+
+        margin-top:20px;
+
+        padding-top:15px;
+
+        font-size:14px;
+
+    }
+
+}
+
+/*==================================================
+        CELULARES MUY PEQUEÑOS
+==================================================*/
+
+@media (max-width:360px){
+
+    .calendar-sheet{
+
+        padding:12px;
+
+    }
+
+    .calendar-week{
+
+        font-size:10px;
+
+    }
+
+    .calendar-grid{
+
+        gap:2px;
+
+    }
+
+    .calendar-grid span{
+
+        width:min(28px,100%);
+
+        font-size:11px;
+
+    }
+
+    .calendar-footer{
+
+        font-size:13px;
+
+    }
+
+}

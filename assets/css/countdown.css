@@ -1,0 +1,289 @@
+/*==================================================
+                ROYAL XV PREMIUM
+                COUNTDOWN.CSS
+==================================================*/
+
+
+/*==========================================
+            SECCIÓN
+==========================================*/
+
+.countdown{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #fffafc,
+
+    #ffffff
+
+    );
+
+}
+
+
+/*==========================================
+            CONTENEDOR
+==========================================*/
+
+.countdown-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+    gap:30px;
+
+    margin-top:60px;
+
+}
+
+
+/*==========================================
+            TARJETA
+==========================================*/
+
+.time-card{
+
+    position:relative;
+
+    padding:40px 20px;
+
+    border-radius:30px;
+
+    text-align:center;
+
+    background:
+
+    rgba(255,255,255,.75);
+
+    backdrop-filter:blur(15px);
+
+    border:
+
+    1px solid
+
+    rgba(255,255,255,.35);
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.12);
+
+    transition:.45s;
+
+}
+
+
+/*==========================================
+            HOVER
+==========================================*/
+
+.time-card:hover{
+
+    transform:
+
+    translateY(-10px);
+
+    box-shadow:
+
+    0 35px 60px rgba(212,175,55,.25);
+
+}
+
+
+/*==========================================
+            NÚMERO
+==========================================*/
+
+.time-card span{
+
+    display:block;
+
+    font-size:4rem;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+    line-height:1;
+
+}
+
+
+/*==========================================
+            TEXTO
+==========================================*/
+
+.time-card small{
+
+    display:block;
+
+    margin-top:15px;
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    color:#666;
+
+    font-size:.85rem;
+
+}
+
+
+/*==========================================
+            BORDE SUPERIOR
+==========================================*/
+
+.time-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70%;
+
+    height:4px;
+
+    border-radius:30px;
+
+    background:
+
+    var(--gradient-gold);
+
+}
+
+
+/*==========================================
+            BRILLO
+==========================================*/
+
+.time-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:30px;
+
+    background:
+
+    linear-gradient(
+
+    120deg,
+
+    transparent,
+
+    rgba(255,255,255,.35),
+
+    transparent);
+
+    opacity:0;
+
+    transition:.5s;
+
+}
+
+
+.time-card:hover::after{
+
+    opacity:1;
+
+}
+
+
+/*==========================================
+            EFECTO PULSE
+==========================================*/
+
+.time-card.active{
+
+    animation:
+
+    pulse
+
+    2.5s infinite;
+
+}
+
+
+/*==========================================
+            ICONO
+==========================================*/
+
+.time-card i{
+
+    display:block;
+
+    font-size:26px;
+
+    color:var(--primary);
+
+    margin-bottom:12px;
+
+}
+
+
+/*==========================================
+            RESPONSIVE
+==========================================*/
+
+@media(max-width:992px){
+
+.countdown-wrapper{
+
+grid-template-columns:
+
+repeat(2,1fr);
+
+gap:20px;
+
+}
+
+.time-card span{
+
+font-size:3rem;
+
+}
+
+}
+
+
+@media(max-width:576px){
+
+.countdown-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+.time-card{
+
+padding:30px;
+
+}
+
+.time-card span{
+
+font-size:2.8rem;
+
+}
+
+}

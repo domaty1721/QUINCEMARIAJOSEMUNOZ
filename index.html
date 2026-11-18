@@ -602,10 +602,12 @@
       if (welcome.classList.contains('book-open')) return;
       welcome.classList.add('book-open');
       openButton.disabled = true;
+      filmIndex = 0;
+      filmScenes.forEach((scene, i) => scene.classList.toggle('active', i === 0));
+      speakCurrentScene();
       window.setTimeout(() => {
         welcome.classList.add('is-open');
         storyFilm.classList.add('is-playing');
-        showFilmScene(0);
       }, 1050);
     });
 

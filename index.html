@@ -539,9 +539,9 @@
       }
       window.speechSynthesis.cancel();
       const utterance = new SpeechSynthesisUtterance(filmNarrations[filmIndex]);
-      utterance.lang = 'es-ES'; utterance.rate = .88; utterance.pitch = 1.05;
+      utterance.lang = 'es-CO'; utterance.rate = .9; utterance.pitch = 1.05;
       const voices = window.speechSynthesis.getVoices();
-      const spanishVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('es-es')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es'));
+      const spanishVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('es-co')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es-mx')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es-us')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es'));
       if (spanishVoice) utterance.voice = spanishVoice;
       utterance.onstart = () => { document.getElementById('film-listen').textContent = '🔊 Reproduciendo voz…'; };
       utterance.onend = () => {

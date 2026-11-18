@@ -526,11 +526,11 @@
     let filmIndex = 0;
     let sceneAdvanceTimer;
     const filmNarrations = [
-          'Había una vez, bajo un cielo bordado de estrellas, una joven princesa que llegó a las puertas de un castillo encantado. Aquella noche comenzaba su gran baile.',
-          'Las puertas se abrieron y una lluvia de destellos iluminó su vestido. En el gran salón la esperaba una celebración inolvidable.',
-          'Cuando sonaron las campanadas, un zapatito de cristal brilló bajo la luz de la luna. Y la aventura apenas comenzaba.',
-          'En este cuento, la princesa es María José, que celebra sus quince años. Y tú eres parte de esta noche mágica.',
-          'Te espero el treinta de enero de dos mil veintisiete en el Restaurante El Alfarero, en Popayán. ¡Ven a vivir conmigo una noche de cuento!'
+          'Había una vez, en un reino lejano, una princesa llamada María José. Una noche, mientras brillaban las estrellas, llegó a un castillo resplandeciente para celebrar sus quince años.',
+          'Al cruzar sus puertas, las luces danzaron como pequeñas estrellas y la música llenó el gran salón. Su vestido brillaba como la luna, y todos aguardaban el comienzo del baile.',
+          'Cuando sonaron las doce campanadas, un delicado zapato de cristal quedó sobre la escalinata. La princesa sonrió: aquella noche sería un recuerdo encantado para siempre.',
+          'Y así comenzó un nuevo capítulo en la historia de María José. Para que la magia estuviera completa, quiso compartir su celebración con las personas que más quiere.',
+          'Su fiesta será el treinta de enero de dos mil veintisiete, en el Restaurante El Alfarero, en Popayán. Ponte tu mejor sonrisa y acompáñala en una noche digna de un cuento de hadas.'
     ];
     function speakCurrentScene() {
       if (!('speechSynthesis' in window)) {
@@ -541,7 +541,7 @@
       const utterance = new SpeechSynthesisUtterance(filmNarrations[filmIndex]);
       utterance.lang = 'es-ES'; utterance.rate = .88; utterance.pitch = 1.05;
       const voices = window.speechSynthesis.getVoices();
-      const spanishVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('es-co')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es'));
+      const spanishVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('es-es')) || voices.find(voice => voice.lang.toLowerCase().startsWith('es'));
       if (spanishVoice) utterance.voice = spanishVoice;
       utterance.onstart = () => { document.getElementById('film-listen').textContent = '🔊 Reproduciendo voz…'; };
       utterance.onend = () => {
